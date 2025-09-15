@@ -1,7 +1,59 @@
+:root {
+  --bg-color: black;
+  --player-color: cyan;
+  --enemy-color: red;
+  --obstacle-color: orange;
+  --obstacle-border: 1px solid brown;
+}
+[data-theme="forest"] {
+  --bg-color: #0b3d0b;
+  --player-color: #76ff03;   
+  --enemy-color: #4a148c;    
+  --obstacle-color: #2e7d32; 
+  --obstacle-border: 2px solid #1b5e20;
+}
+
+[data-theme="sunset"] {
+  --bg-color: #ff7043;
+  --player-color: #ffee58;   
+  --enemy-color: #d32f2f;    
+  --obstacle-color: #f4511e; 
+  --obstacle-border: 2px solid #bf360c;
+}
+
+[data-theme="ice"] {
+  --bg-color: #e0f7fa;       
+  --player-color: #00bcd4;   
+  --enemy-color: #01579b;    
+  --obstacle-color: #4dd0e1; 
+  --obstacle-border: 2px solid #00838f;
+}
+
+[data-theme="galaxy"] {
+  --bg-color: #0d0d2b;        
+  --player-color: #e040fb;    
+  --enemy-color: #ff4081;     
+  --obstacle-color: #7c4dff;  
+  --obstacle-border: 2px solid #311b92;
+}
+
+[data-theme="autumn"] {
+  --bg-color: #3e2723;       
+  --player-color: #ff8f00;   
+  --enemy-color: #d84315;    
+  --obstacle-color: #6d4c41; 
+  --obstacle-border: 2px solid #4e342e;
+}
+
+body, .player, .enemy, .obstacle {
+  transition: background-color 1s ease, color 1s ease, border-color 1s ease;
+}
+
+
 body {
       margin: 0;
       overflow: hidden;
-      background: #111;
+      background:var(--bg-color);
       color: white;
       font-family: Arial, sans-serif;
 }
@@ -10,7 +62,7 @@ body {
     position: absolute;
     width: 30px;
     height: 30px;
-    background:cyan;
+    background:var(--player-color);
     border-radius:5px;
     top:50%;
     left:50%;
@@ -35,8 +87,8 @@ body {
 
 .obstacle {
   position: absolute;
-  background: orange;
-  border:1px solid brown;  
+  background: var(--obstacle-color);
+  border:var(--obstacle-border);
   border-radius: 4px;
 }
 
