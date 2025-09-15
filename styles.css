@@ -1,0 +1,50 @@
+body {
+      margin: 0;
+      overflow: hidden;
+      background: #111;
+      color: white;
+      font-family: Arial, sans-serif;
+}
+
+.player{
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background:cyan;
+    border-radius:5px;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%)
+}
+
+.enemy{
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: red;
+    border-radius: 50%;
+    top: 0%;
+    left:0%;
+}
+
+.score {
+    top: 10px;
+    left: 10px;
+    font-size: 20px;
+}
+
+.obstacle {
+  position: absolute;
+  background: orange;
+  border:1px solid brown;  
+  border-radius: 4px;
+}
+
+.power-up{
+    position:absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: gold;
+    display: none;
+}
