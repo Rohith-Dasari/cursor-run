@@ -5,13 +5,6 @@
   --obstacle-color: orange;
   --obstacle-border: 1px solid brown;
 }
-[data-theme="forest"] {
-  --bg-color: #0b3d0b;
-  --player-color: #76ff03;   
-  --enemy-color: #4a148c;    
-  --obstacle-color: #2e7d32; 
-  --obstacle-border: 2px solid #1b5e20;
-}
 
 [data-theme="sunset"] {
   --bg-color: #ff7043;
@@ -83,6 +76,9 @@ body {
     top: 10px;
     left: 10px;
     font-size: 20px;
+    color: var(--player-color);
+    display: inline-block;
+    margin-right: 20px;
 }
 
 .obstacle {
@@ -94,8 +90,8 @@ body {
 
 .power-up{
     position:absolute;
-    width: 10px;
-    height: 10px;
+    width: 12px;
+    height: 12px;
     border-radius: 50%;
     background-color: gold;
     display: none;

@@ -3,6 +3,8 @@ const enemy = document.querySelector(".enemy");
 const scoreElement = document.querySelector(".score");
 const obstacles = document.querySelectorAll(".obstacle");
 const powerUp=document.getElementById("powerUp");
+const highScore=parseInt(localStorage.getItem("highScore"))||0;
+document.getElementById("high score").textContent=`High Score: ${highScore}`
 let powerUpActive=false
 
 let playerX=window.innerWidth/2;
@@ -18,7 +20,7 @@ let score=0;
 let gameOver=false;
 
 
-const themes = ["og","forest","ice","galaxy","autumn","sunset"];
+const themes = ["og","galaxy","ice","autumn","sunset"];
 let currentThemeIndex = 0;
 function toggleTheme() {
     currentThemeIndex = (currentThemeIndex + 1) % themes.length;
@@ -56,6 +58,7 @@ function checkPowerUp(){
 
     const rect =powerUp.getBoundingClientRect();
     if(isColliding(playerX,playerY,30,30,rect.left,rect.top,rect.width,rect.height)){
+        enemySpeed+=0.2
         updateScore()
         toggleTheme()
         powerUp.style.display="none";
@@ -130,7 +133,10 @@ function moveEnemy(){
     enemy.style.top = enemyY + "px";
 
     if (Math.abs(playerX-enemyX)<20 &&Math.abs(playerY-enemyY)<25){
-        gameOver=true;
+        gameOver=true;  
+        if (score>highScore){
+        localStorage.setItem("highScore", score);
+        }
         alert("Game Over! Score:"+score);
         window.location.reload();
     }
@@ -139,6 +145,7 @@ function moveEnemy(){
 function updateScore(){
     score+=10;
     scoreElement.textContent="Score: "+score;
+    
 }
 
 function gameLoop(){
@@ -147,6 +154,6 @@ function gameLoop(){
     moveEnemy();
     checkPowerUp();
     requestAnimationFrame(gameLoop);
+    
 }
-
 gameLoop();
