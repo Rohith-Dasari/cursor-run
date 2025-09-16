@@ -4,16 +4,23 @@ const scoreElement = document.querySelector(".score");
 const obstacles = document.querySelectorAll(".obstacle");
 const powerUp=document.getElementById("powerUp");
 const highScore=parseInt(localStorage.getItem("highScore"))||0;
-document.getElementById("high score").textContent=`High Score: ${highScore}`
+document.getElementById("high score").textContent=`High Score: ${highScore}`;
+
+let title = document.querySelector(".title");
+title.style.left=window.innerWidth/2;
+title.style.right=window.innerHeight/2;
+
 let powerUpActive=false
+
+
 
 let playerX=window.innerWidth/2;
 let playerY=window.innerHeight/2;
-let speed=4;
+let speed=8;
 
-let enemyX=50;
-let enemyY=50;
-let enemySpeed=3;
+let enemyX=10;
+let enemyY=10;
+let enemySpeed=7;
 
 let keys={};
 let score=0;
@@ -30,12 +37,36 @@ function toggleTheme() {
 window.addEventListener("keydown",e=>keys[e.key]=true);
 window.addEventListener("keyup",e=>keys[e.key]=false);
 function isColliding(x,y,w,h,ox,oy,ow,oh){
+
+    //not working
+    // if ((x+w<ox &&y+h<oy)||(x>ox+ow&&y>oy+oh)){
+    //     return false
+    // }else{
+    //     return
+    // }
+
+
+
+
+
+    // if((x+w==ox)||(y+h==oy)||(x==ox+w)||(y==oy+h)){
+    //     return true
+    // }else{
+    //     return false
+    // }
+
+
+
+
+    //working but top prob
     if (x+w<ox||x>ox+ow||y+h<oy||y>oy+oh){
         return false
     }else{
         return true
     }
+
 }
+
 
 function generatePowerUp(){
     powerUpActive=true;
@@ -132,7 +163,7 @@ function moveEnemy(){
     enemy.style.left = enemyX + "px";
     enemy.style.top = enemyY + "px";
 
-    if (Math.abs(playerX-enemyX)<20 &&Math.abs(playerY-enemyY)<25){
+    if (Math.abs(playerX-enemyX)<10 &&Math.abs(playerY-enemyY)<10){
         gameOver=true;  
         if (score>highScore){
         localStorage.setItem("highScore", score);
@@ -157,3 +188,11 @@ function gameLoop(){
     
 }
 gameLoop();
+
+
+window.addEventListener("resize",()=>{
+    playerX=window.innerWidth/2
+    playerY=window.innerHeight/2
+    
+    }
+)

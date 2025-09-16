@@ -49,6 +49,8 @@ body {
       background:var(--bg-color);
       color: white;
       font-family: Arial, sans-serif;
+      /* background-image:url('https://img.itch.zone/aW1hZ2UvODYxOTMzLzQ4NDM0MTUuZ2lm/original/ALidej.gif');
+      background-size: cover; */
 }
 
 .player{
@@ -79,6 +81,7 @@ body {
     color: var(--player-color);
     display: inline-block;
     margin-right: 20px;
+    opacity: 0.4;
 }
 
 .obstacle {
@@ -95,4 +98,12 @@ body {
     border-radius: 50%;
     background-color: gold;
     display: none;
+}
+
+
+.title{
+  position: absolute;
+  font-size: xx-large;  
+  opacity: 0.3;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
