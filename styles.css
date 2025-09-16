@@ -100,10 +100,43 @@ body {
     display: none;
 }
 
-
-.title{
-  position: absolute;
-  font-size: xx-large;  
-  opacity: 0.3;
+.startUp-Message{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);    
+  
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
+
+.title{  
+    font-size: 9vw; 
+}
+.title span{
+    opacity:0;
+    animation: fadeIn 1s forwards, fadeOut 1s forwards;
+}
+
+.title span:nth-child(2){
+    animation-delay:0s,3s;
+}
+.title span:nth-child(1){
+    animation-delay:0.5s,3.5s;
+}
+
+.start{
+    font-size: 7vw;
+    text-align: center; 
+    opacity: 0;
+    animation:fadeIn 1s forwards, fadeOut 1s forwards;
+    animation-delay: 1s,4s;
+}
+
+@keyframes fadeIn{
+    to {opacity: 0.1;}
+}
+
+@keyframes fadeOut {
+    to { opacity: 0;}
+}
+

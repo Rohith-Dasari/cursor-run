@@ -6,10 +6,6 @@ const powerUp=document.getElementById("powerUp");
 const highScore=parseInt(localStorage.getItem("highScore"))||0;
 document.getElementById("high score").textContent=`High Score: ${highScore}`;
 
-let title = document.querySelector(".title");
-title.style.left=window.innerWidth/2;
-title.style.right=window.innerHeight/2;
-
 let powerUpActive=false
 
 
@@ -20,7 +16,7 @@ let speed=8;
 
 let enemyX=10;
 let enemyY=10;
-let enemySpeed=7;
+let enemySpeed=0;
 
 let keys={};
 let score=0;
@@ -46,17 +42,11 @@ function isColliding(x,y,w,h,ox,oy,ow,oh){
     // }
 
 
-
-
-
     // if((x+w==ox)||(y+h==oy)||(x==ox+w)||(y==oy+h)){
     //     return true
     // }else{
     //     return false
     // }
-
-
-
 
     //working but top prob
     if (x+w<ox||x>ox+ow||y+h<oy||y>oy+oh){
@@ -185,7 +175,6 @@ function gameLoop(){
     moveEnemy();
     checkPowerUp();
     requestAnimationFrame(gameLoop);
-    
 }
 gameLoop();
 
